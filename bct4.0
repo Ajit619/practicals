@@ -1,0 +1,29 @@
+pragma solidity >=0.7.0 <0.9.0;
+
+// SPDX-License-Identifier: GPL-3.0
+
+contract School {
+    struct Student {
+        string name;
+        string class;
+        uint256 noOfSubjects;
+    }
+    Student[] public studentArray;
+
+    function addStudent(
+        string memory _name,
+        string memory _class,
+        uint256 _noOfSubjects
+    ) public {
+        Student memory temp = Student({
+            name: _name,
+            class: _class,
+            noOfSubjects: _noOfSubjects
+        });
+        studentArray.push(temp);
+    }
+
+    receive() external payable {}
+
+    fallback() external payable {}
+}
